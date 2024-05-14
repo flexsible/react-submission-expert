@@ -1,4 +1,6 @@
+import { hideLoading, showLoading } from 'react-redux-loading-bar';
 import api from '../../utils/api';
+import { receiveCommentsActionCreator } from '../comments/action';
 
 const ActionType = {
   RECEIVE_THREAD_DETAIL: 'RECEIVE_THREAD_DETAIL',
@@ -22,14 +24,18 @@ function clearDetailThreadActionCreator() {
 
 function asyncReceiveDetailThread(threadId) {
   return async (dispatch) => {
-    dispatch(clearDetailThreadActionCreator());
+    dispatch(showLoading());
 
     try {
+      dispatch(clearDetailThreadActionCreator());
       const detailThread = await api.getDetailThread(threadId);
       dispatch(receiveThreadDetailActionCreator(detailThread));
+      dispatch(receiveCommentsActionCreator(detailThread.comments));
     } catch (error) {
       alert(error.message);
     }
+
+    dispatch(hideLoading());
   };
 }
 

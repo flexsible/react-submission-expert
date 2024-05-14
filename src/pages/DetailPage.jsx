@@ -39,7 +39,7 @@ function DetailPage() {
         )
       }
       <ThreadDetail {...detailThread} authUser={authUser.id} />
-      <CommentInput addComment={onCommentThread} authUser={authUser.id} comments={comments} />
+      <CommentInput addComment={onCommentThread} authUser={authUser} comments={comments} />
     </section>
   );
 }
