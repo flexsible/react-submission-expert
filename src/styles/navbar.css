@@ -1,0 +1,27 @@
+/* NAV */
+
+.logo {
+  font-size: 28px;
+  font-weight: 700;
+  text-decoration: none;
+  color: #1a1a1a;
+}
+
+.navigation {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.navigation-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.navigation-avatar {
+  border-radius: 50%;
+  width: 50px;
+}

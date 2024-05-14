@@ -1,0 +1,33 @@
+/* COMMENTLIST */
+
+.comment-list {
+  margin: 20px;
+}
+
+.comment-list__container {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.comment-list__avatar img {
+  border-radius: 50%;
+  width: 40px;
+}
+
+.comment-list__creator h3 {
+  font-size: 18px;
+}
+
+.comment-list__creator p {
+  font-size: 13px;
+}
+
+.comment-list__content {
+  margin-top: 5px;
+  font-size: 15px;
+}
+
+.comment-list__input {
+  margin: 20px;
+}

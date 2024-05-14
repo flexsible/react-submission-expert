@@ -1,0 +1,8 @@
+/* THREADLIST */
+
+.thread-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 10px 40px 10px 40px;
+}

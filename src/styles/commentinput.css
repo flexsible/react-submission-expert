@@ -1,0 +1,23 @@
+.comment-list__input {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.comment-list__input textarea {
+  font-size: 15px;
+  background-color: transparent;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 5px;
+  border: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.comment-list__input button {
+  padding: 15px;
+}
+
+.comment-list__input textarea:focus {
+  outline: none;
+}

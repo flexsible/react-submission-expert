@@ -1,0 +1,90 @@
+/*  */
+
+.thread-input {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  /* align-items: center; */
+  position: relative;
+  --width-of-input: 300px;
+}
+
+.thread-input__title-container {
+  display: flex;
+  justify-content: flex-start;
+}
+
+
+.thread-input__title {
+  display: flex;
+  justify-content: flex-start;
+  font-size: 20px;
+  background-color: transparent;
+  width: 30%;
+  box-sizing: border-box;
+  padding-inline: 0.5em;
+  padding-block: 0.7em;
+  border: none;
+  border-bottom: var(--border-height) solid var(--border-before-color);
+}
+
+.thread-input__title:focus {
+  outline: none;
+}
+
+.thread-input__textarea {
+  /* color: #fff; */
+  font-size: 20px;
+  background-color: transparent;
+  width: 100%;
+  box-sizing: border-box;
+  padding-inline: 0.5em;
+  padding-block: 0.7em;
+  border: none;
+  border-bottom: var(--border-height) solid var(--border-before-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.thread-input__textarea-border {
+  position: absolute;
+  background: var(--border-after-color);
+  width: 0%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  transition: width 0.3s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+}
+
+.thread-input__textarea:focus {
+  outline: none;
+}
+
+.thread-input__textarea + .thread-input__textarea-border {
+  width: 100%;
+}
+
+.thread-input__footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  gap: 5px;
+  margin-top: 5px;
+}
+
+.textarea-alt {
+  font-size: 1.2rem;
+  padding-inline: 1em;
+  padding-block: 0.8em;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.textarea-border-alt {
+  height: 3px;
+  background: linear-gradient(90deg, #FF6464 0%, #FFBF59 50%, #47C9FF 100%);
+  transition: width 0.4s cubic-bezier(0.42, 0, 0.58, 1.00);
+}
+
+.textarea-alt:focus + .textarea-border-alt {
+  width: 100%;
+}
