@@ -1,4 +1,6 @@
 import { showLoading, hideLoading } from 'react-redux-loading-bar';
+// eslint-disable-next-line import/no-cycle
+import { asyncReceiveDetailThread } from '../detailThread/action';
 import api from '../../utils/api';
 
 const ActionType = {
@@ -31,6 +33,7 @@ function asyncAddComment({ id, content }) {
     try {
       const comment = await api.addComment({ id, content });
       dispatch(addCommentActionCreator(comment));
+      dispatch(asyncReceiveDetailThread(id));
     } catch (error) {
       alert(error.message);
     }

@@ -8,6 +8,7 @@ import { asyncUnsetAuthUser } from './states/auth/action';
 import Navigation from './components/Navigation';
 import HomePage from './pages/HomePage';
 import DetailPage from './pages/DetailPage';
+import Loading from './components/Loading';
 
 function App() {
   const {
@@ -31,12 +32,15 @@ function App() {
 
   if (authUser === null) {
     return (
-      <main>
-        <Routes>
-          <Route path="/*" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
-        </Routes>
-      </main>
+      <>
+        <Loading />
+        <main>
+          <Routes>
+            <Route path="/*" element={<LoginPage />} />
+            <Route path="/register" element={<RegisterPage />} />
+          </Routes>
+        </main>
+      </>
     );
   }
 
