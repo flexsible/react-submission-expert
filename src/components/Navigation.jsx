@@ -8,7 +8,7 @@ function Navigation({ authUser, signOut }) {
   return (
     <div className="navigation">
       <div className="logo">
-        Threads
+        <Link to="/" className="logo">Threads</Link>
       </div>
       <div className="navigation-container">
         <nav>

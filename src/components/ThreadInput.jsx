@@ -1,37 +1,31 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
+import useInput from '../hooks/useInput';
 
 function ThreadInput({ addThread }) {
-  const [text, setText] = useState('');
+  const [title, setTitle] = useInput('');
+  const [body, setBody] = useInput('');
+  const [category, setCategoty] = useInput('');
 
-  function addthread() {
-    if (text.trim()) {
-      addThread(text);
-      setText('');
-    }
-  }
-
-  function handleTextChange({ target }) {
-    if (target.value.length <= 300) {
-      setText(target.value);
-    }
-  }
+  const onSubmitHandler = (e) => {
+    e.preventDefault();
+    addThread({ title, body, category });
+  };
 
   return (
     <>
       <div className="thread-input">
         <div className="thread-input__title-container">
-          <textarea type="text" className="thread-input__title input-alt" placeholder="Title" />
+          <textarea type="text" className="thread-input__title input-alt" placeholder="Title" value={title} onChange={setTitle} />
         </div>
-        <textarea rows={4} cols={50} className="thread-input__textarea textarea-alt" type="text" placeholder="What are you thinking?" value={text} onChange={handleTextChange} />
+        <div className="thread-input__title-container">
+          <textarea type="text" className="thread-input__title input-alt" placeholder="Category" value={category} onChange={setCategoty} />
+        </div>
+        <textarea rows={4} cols={50} className="thread-input__textarea textarea-alt" type="text" placeholder="What are you thinking?" onChange={setBody} value={body} />
         <span className="thread-input__textarea-border textarea-border-alt" />
       </div>
       <div className="thread-input__footer">
-        <p className="thread-input__char-left">
-          <strong>{text.length}</strong>
-          /300
-        </p>
-        <button type="submit" onClick={addthread}>Make Thread</button>
+        <button type="submit" onClick={onSubmitHandler}>Make Thread</button>
       </div>
     </>
   );

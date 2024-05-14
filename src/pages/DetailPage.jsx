@@ -3,25 +3,25 @@ import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import ThreadDetail from '../components/ThreadDetail';
 import ThreadItem from '../components/ThreadItem';
-import ThreadReplyInput from '../components/ThreadReplyInput';
+import CommentInput from '../components/CommentInput';
 import { asyncReceiveDetailThread } from '../states/detailThread/action';
-import { asyncAddThread } from '../states/threads/action';
+import { asyncAddComment } from '../states/comments/action';
 
 function DetailPage() {
   const { id } = useParams();
   const {
     detailThread = null,
+    comments = null,
     authUser,
   } = useSelector((states) => states);
-
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(asyncReceiveDetailThread(id));
   }, [id, dispatch]);
 
-  const onReplyThread = (text) => {
-    dispatch(asyncAddThread({ text, replyTo: id }));
+  const onCommentThread = (content) => {
+    dispatch(asyncAddComment({ id, content }));
   };
 
   if (!detailThread) {
@@ -39,7 +39,7 @@ function DetailPage() {
         )
       }
       <ThreadDetail {...detailThread} authUser={authUser.id} />
-      <ThreadReplyInput replyThread={onReplyThread} />
+      <CommentInput addComment={onCommentThread} authUser={authUser.id} comments={comments} />
     </section>
   );
 }

@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import ThreadInput from '../components/ThreadInput';
 import ThreadList from '../components/ThreadList';
 import { asyncAddThread } from '../states/threads/action';
@@ -11,20 +12,21 @@ function HomePage() {
     users = [],
     authUser,
   } = useSelector((states) => states);
-
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(asyncPopulateUsersAndThreads());
   }, [dispatch]);
 
-  const onAddThread = (text) => {
-    dispatch(asyncAddThread({ text }));
+  const onAddThread = ({ title, body, category }) => {
+    dispatch(asyncAddThread({ title, body, category }));
+    navigate('/');
   };
 
   const threadList = threads.map((thread) => ({
     ...thread,
-    user: users.find((user) => user.id === thread.user),
+    user: users.find((user) => user.id === thread.ownerId),
     authUser: authUser.id,
   }));
 

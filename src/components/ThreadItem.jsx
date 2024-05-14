@@ -19,27 +19,39 @@ function ThreadItem({
 
   return (
     <div role="button" tabIndex={0} className="thread-item" onClick={onThreadClick} onKeyDown={onThreadPress}>
-      <div className="thread-item__user-photo">
-        <img src={user?.avatar} alt={user?.avatar} />
-      </div>
-      <div className="thread-item__detail">
-        <header>
+      <div className="thread-item__container">
+        <div className="thread-item__container-wrapper">
+
+          <div className="thread-item__user-photo">
+            <img src={user?.avatar} alt={user?.name} />
+          </div>
           <div className="thread-item__user-info">
-            <p className="thread-item__user-name">{user?.name}</p>
+            <h3 className="thread-item__user-name">{user?.name}</h3>
             <p className="thread-item__user-id">
               @
               {user?.id}
             </p>
           </div>
+        </div>
+        <div className="thread-item__container-wrapper2">
           <p className="thread-item__created-at">{postedAt(createdAt)}</p>
-        </header>
+          <div className="thread-item__category">
+            #
+            {category}
+          </div>
+        </div>
+      </div>
+      <div className="thread-item__detail">
         <article>
-          <div className="thread-item__title">{title}</div>
+          <h3 className="thread-item__title">{title}</h3>
           <div className="thread-item__body">{body}</div>
         </article>
       </div>
-      <div className="thread-item__category">{category}</div>
-      <div className="thread-item__total-comments">{totalComments}</div>
+      <div className="thread-item__total-comments">
+        Comments(
+        {totalComments}
+        )
+      </div>
     </div>
   );
 }

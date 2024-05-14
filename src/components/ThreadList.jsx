@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import ThreadItem, { threadItemShape } from './ThreadItem';
 
 function ThreadList({ threads }) {
-  console.log(threads);
   return (
     <div className="thread-list">
       {
