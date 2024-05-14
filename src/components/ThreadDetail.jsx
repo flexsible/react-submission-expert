@@ -5,7 +5,6 @@ import { postedAt } from '../utils';
 function ThreadDetail({
   title, body, createdAt, owner, category, comments,
 }) {
-  console.log(comments);
   return (
     <section className="thread-detail">
       <header>

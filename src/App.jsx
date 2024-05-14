@@ -45,17 +45,20 @@ function App() {
   }
 
   return (
-    <div className="app-container">
-      <header>
-        <Navigation authUser={authUser} signOut={onSignOut} />
-      </header>
-      <main>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="threads/:id" element={<DetailPage />} />
-        </Routes>
-      </main>
-    </div>
+    <>
+      <Loading />
+      <div className="app-container">
+        <header>
+          <Navigation authUser={authUser} signOut={onSignOut} />
+        </header>
+        <main>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="threads/:id" element={<DetailPage />} />
+          </Routes>
+        </main>
+      </div>
+    </>
   );
 }
 

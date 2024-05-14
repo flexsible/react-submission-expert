@@ -53,6 +53,18 @@ h1 {
   line-height: 1.1;
 }
 
+.loading {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+}
+
+.app-container {
+  margin: 0 auto;
+  max-width: 1500px;
+}
+
 button {
   border-radius: 8px;
   border: 1px solid transparent;
