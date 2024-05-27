@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import useInput from '../hooks/useInput';
+import Button from './styled/LoginButton';
 
 function LoginInput({ login }) {
   const [email, onEmailChange] = useInput('');
@@ -11,7 +12,10 @@ function LoginInput({ login }) {
       <div className="input-container">
         <input type="email" value={email} onChange={onEmailChange} placeholder="Email" />
         <input type="password" value={password} onChange={onPasswordChange} placeholder="Password" />
-        <button className="login-submit" type="button" onClick={() => login({ email, password })}>Login</button>
+        <Button type="submit" onClick={(e) => {
+          e.preventDefault();
+          login({ email, password })
+        }}>Login</Button>
       </div>
     </form>
   );

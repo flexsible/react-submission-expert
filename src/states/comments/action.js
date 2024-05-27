@@ -1,5 +1,4 @@
 import { showLoading, hideLoading } from 'react-redux-loading-bar';
-// eslint-disable-next-line import/no-cycle
 import { asyncReceiveDetailThread } from '../detailThread/action';
 import api from '../../utils/api';
 
