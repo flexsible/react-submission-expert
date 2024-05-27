@@ -41,4 +41,6 @@ function asyncAddComment({ id, content }) {
   };
 }
 
-export { ActionType, asyncAddComment, receiveCommentsActionCreator };
+export {
+  ActionType, addCommentActionCreator, asyncAddComment, receiveCommentsActionCreator,
+};
