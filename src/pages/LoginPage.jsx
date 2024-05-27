@@ -17,7 +17,7 @@ function LoginPage() {
         <img src="/hero.jpg" alt="hero" />
       </div>
       <div className="login-page__main">
-        <h2>Login to your account</h2>
+        <h2>Login to your account!</h2>
         <LoginInput login={onLogin} />
         <p>
           Don&apos;t have an account?
