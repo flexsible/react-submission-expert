@@ -12,10 +12,15 @@ function LoginInput({ login }) {
       <div className="input-container">
         <input type="email" value={email} onChange={onEmailChange} placeholder="Email" />
         <input type="password" value={password} onChange={onPasswordChange} placeholder="Password" />
-        <Button type="submit" onClick={(e) => {
-          e.preventDefault();
-          login({ email, password })
-        }}>Login</Button>
+        <Button
+          type="submit"
+          onClick={(e) => {
+            e.preventDefault();
+            login({ email, password });
+          }}
+        >
+          Login
+        </Button>
       </div>
     </form>
   );
